@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group android:checkableBehavior="all">
+    <item
+        android:title="Recipes"
+        android:icon="@drawable/ic_library_books_black_24dp"
+        android:id="@+id/recipes_unsigned"
+        />
+    <item
+        android:title="DIY"
+        android:icon="@drawable/diy_icon"
+        android:id="@+id/diy_unsigned"
+        />
+    <item
+        android:title="Log In"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:id="@+id/login_unsigned"
+        />
+</group>
+</menu>
