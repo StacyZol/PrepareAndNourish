@@ -84,7 +84,12 @@ public class HomeUnsignedActivity extends AppCompatActivity implements Navigatio
         mRecyclerViewUnsigned.setLayoutManager(linearLayoutManager);
 
         mDatabaseHelper = DatabaseHelper.getInstance(HomeUnsignedActivity.this);
-        mDatabaseHelper.addCategories();
+        //Checking to see if the Category list is empty. If so, adding the list
+       // if (arrayList.isEmpty()){
+       //     mDatabaseHelper.addCategories();
+       // }
+        mDatabaseHelper.checkDatabase();
+
         arrayList = mDatabaseHelper.getCategories();
 
         mAdapter = new RecyclerViewUnsignedAdapter(arrayList, this);

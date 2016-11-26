@@ -78,7 +78,10 @@ public class RecipeListsActivity extends AppCompatActivity implements Navigation
         Intent intent = getIntent();
         String category = intent.getStringExtra("category");
         Log.i(TAG, "category: "+ category);
-        mDatabaseHelper.addRecipe();
+
+        //Checking to see if the recipe list is empty, if so, adding the lists
+        mDatabaseHelper.checkRecipeDatabase();
+
         if (category.equals("Breakfast")){
             recipeList = mDatabaseHelper.getBreakfast();
             mAdapter = new RecyclerViewRecipeAdapter(recipeList, this);
@@ -90,7 +93,7 @@ public class RecipeListsActivity extends AppCompatActivity implements Navigation
             mRecyclerViewRecipeList.setAdapter(mAdapter);
         }
         if (category.equals("Drinks")){
-            recipeList = mDatabaseHelper.getEntrees();
+            recipeList = mDatabaseHelper.getDrinks();
             mAdapter = new RecyclerViewRecipeAdapter(recipeList, this);
             mRecyclerViewRecipeList.setAdapter(mAdapter);
         }
@@ -99,8 +102,34 @@ public class RecipeListsActivity extends AppCompatActivity implements Navigation
             mAdapter = new RecyclerViewRecipeAdapter(recipeList, this);
             mRecyclerViewRecipeList.setAdapter(mAdapter);
         }
+        if (category.equals("Snacks")){
+            recipeList = mDatabaseHelper.getSnacks();
+            mAdapter = new RecyclerViewRecipeAdapter(recipeList, this);
+            mRecyclerViewRecipeList.setAdapter(mAdapter);
+        }
+        if (category.equals("Ferments")){
+            recipeList = mDatabaseHelper.getFerments();
+            mAdapter = new RecyclerViewRecipeAdapter(recipeList, this);
+            mRecyclerViewRecipeList.setAdapter(mAdapter);
+        }
+        if (category.equals("Sides")){
+            recipeList = mDatabaseHelper.getSides();
+            mAdapter = new RecyclerViewRecipeAdapter(recipeList, this);
+            mRecyclerViewRecipeList.setAdapter(mAdapter);
+        }
+        if (category.equals("Sweets")){
+            recipeList = mDatabaseHelper.getSweets();
+            mAdapter = new RecyclerViewRecipeAdapter(recipeList, this);
+            mRecyclerViewRecipeList.setAdapter(mAdapter);
+        }
+        if (category.equals("Soups")){
+            recipeList = mDatabaseHelper.getSoups();
+            mAdapter = new RecyclerViewRecipeAdapter(recipeList, this);
+            mRecyclerViewRecipeList.setAdapter(mAdapter);
+        }
 
-       // recipeList = mDatabaseHelper.getBreakfast();
+
+        // recipeList = mDatabaseHelper.getBreakfast();
 
         Log.i(TAG, "onResume: " + recipeList.size());
 
